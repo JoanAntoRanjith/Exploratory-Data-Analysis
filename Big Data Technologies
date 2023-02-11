@@ -1,0 +1,13 @@
+from pyspark.sql import SparkSession
+
+# Create Spark session
+spark = SparkSession.builder.appName("EDA").getOrCreate()
+
+# Load data
+df = spark.read.csv('data.csv', header=True, inferSchema=True)
+
+# Aggregate data
+agg_df = df.groupBy('column_1').agg({'column_2': 'mean'})
+
+# Show result
+agg_df.show()
