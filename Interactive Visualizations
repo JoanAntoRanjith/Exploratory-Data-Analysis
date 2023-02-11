@@ -1,0 +1,11 @@
+import plotly.express as px
+import pandas as pd
+
+# Load data
+df = pd.read_csv('data.csv')
+
+# Create scatter plot
+fig = px.scatter(df, x='column_1', y='column_2', color='column_3')
+
+# Show plot
+fig.show()
